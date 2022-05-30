@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            span{
+                color: brown;
+            }
+            button{
+                margin-left:40%;
+                font-size: xx-large;
+            }
+            div{
+                margin-left: 40%;
+                font-size: xx-large;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>点击时开始计时并显示计时，再次点击时暂停计时，再点时延续暂停时的时间继续计时</h2>
+        <button onclick="timing()">计时开始</button>
+        <div id="demo">
+
+        </div>
+        <script>
+            var block= document.getElementById('demo');//找到呈现的位置
+            var i=0;
+            var click=0;
+            var event//设置变量event
+            
+            function timing(){
+                click++;
+                if(click%2==1)
+                    event=setInterval(update,1000);//定义event
+                else
+                    clearInterval(event);//clearInterval要暂停的是事件
+            }
+            function update(){
+                var j = i++;
+                block.innerHTML='Time passed'+'<span>'+j+'</span>'+'s';//找到呈现的内容
+            }
+        </script>
+    </body>
+</html>
